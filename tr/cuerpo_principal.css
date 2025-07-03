@@ -1,0 +1,423 @@
+.all{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; 
+}
+ body{
+  margin: 0% 0%;
+  display: grid;
+  grid-template-rows: 400px 1200px 20px;
+  grid-column: 25% 25% 25% 25%;
+  grid-template-areas: 
+  "as as as as"
+  "is cu cu de" 
+  "fo fo fo fo" ; 
+  gap: 30px;
+        }
+
+  /*BARRA_SUP*/
+    
+header{
+    grid-area: as;
+}
+
+#cabecera{
+    display: flex; 
+    flex-direction: column;
+    height: 90px;
+}     
+
+.foto{
+  width: 70px;
+  height: 70px;
+  border-radius: 55%;
+}
+
+.logo {
+  padding: 100px;
+  background:rgb(7, 16, 22);
+  display: flex;
+  flex-direction: row;
+
+  
+}
+.titulo {
+  font-size: 50px;
+  color: white;
+  text-decoration: none;
+  padding-left: 20px;
+} 
+.barra{
+  display: flex;
+  flex-direction: row;
+
+}
+.barra_plo{
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  height: 100px;
+  font-size: 20px;
+ 
+
+}
+
+.botones{
+  background-color: gray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin-right: 10px;
+  
+}
+.menu .inicio{
+  display: flex;
+  justify-content: center;
+  background-color: white; 
+  border-radius: 20px;
+  color: black;
+  margin-left: -30px;
+  margin-right: 20px;
+  width: 70px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.bot{
+  border-radius: 20px;
+  height: 20px;
+  font-size: 10px;
+  background-color: #252547; 
+  color: white; 
+  
+  
+}
+
+#buscador{
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  background-color: #252547;
+  color: white;
+  width: 30%;
+  margin: 0px 3px;
+  font-size: 20px;
+}
+#vacio{
+  display: flex;
+  align-items: center;
+  background-color: gray;
+  margin-right: 3px;
+  width: 10%;
+}
+
+.menu ul a{
+
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 10px;
+  font-weight: 400;
+  padding: 10px 14px;
+  transition-property: background;
+ 
+}
+
+      
+    /*BARRA IZQUIERDA*/
+    #uno{
+        grid-area: is;
+        margin-left: 20px;
+    }
+    .casa{
+        height: 40px;
+        width: 40px;
+        padding-right: 30px;
+    }
+        .barra_izq{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 250px;
+    }
+    #menu, .noti{
+        border-bottom: 2px solid;
+        border-color:white ;
+    }
+    .di{
+        padding: 10px;
+        background-color: #1d1e22;
+        padding-left: 30px;
+        border-bottom: 2px solid;
+        border-color:white ;
+        
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+    .visi{
+        width: 250px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .hoy, .mes,.pasa{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .t{
+        background-color: #1d1e22;
+        border-bottom: 4px solid white;
+        color: white;
+        padding: 12px;
+    }
+    .c{
+        color: white;
+        background-color: gray;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    /*CUERPO*/ 
+
+        #dos{
+            grid-area: cu;
+        }
+        .bienvenida{
+        display: flex;
+        flex-direction: column;
+    }
+
+    /*BARRA DERECHA*/
+        #tre{
+            grid-area: de; }
+    .barra_der{
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cale, .titulo_acceso_online,.barra_redes{
+        background-color:#1d1e22;
+        color: white;
+        margin-bottom: 20px;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-around;
+        height: 30px;
+    }
+    .cal_img{
+        height: 120px;
+        width: 250px;
+    }
+    .ingreso{
+        display: flex;
+        justify-content: space-around;
+        background-color: gray;
+        color: white;
+    }
+    
+    /*BARRa footer*/
+        footer{
+        grid-area: fo;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color:rgb(31,35,46) ;
+        color: white;
+        }
+    @media(max-width: 700px){
+    body{
+       
+          display: grid;
+          grid-template-rows: 350px 1000px 500px 20px;
+          grid-template-columns: 25% 25% 25% 25%;
+          grid-template-areas: 
+                "as as as as"
+                "is is cu cu"
+                "de de cu cu"
+                "fo fo fo fo";
+          
+            }
+.titulo {
+  font-size: 30px;
+}
+       
+.col{
+  width: 250px;
+  height: 200px;
+  margin-left: -30px;
+  border: 1px solid rgb(13, 22, 48);
+}
+
+  #uno{
+    margin-top: 50px;
+  }
+  #dos{
+    grid-area: cu;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0px;
+    width: 100px;
+    margin-top: 50px;
+    
+            }
+.bienvenida{
+    margin-left: 100px;
+    
+            }
+.parrafo{
+    margin-top: 50px;
+    margin-left: -20px;
+    border: 1px solid#252547;
+       
+            }
+#menu{
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+            }
+.di{
+
+  width: 100px;
+  font-size: small;
+}
+.noti{
+  width: 150px;
+}            
+.barra_der{
+    display: flex;
+    margin-top: 70px;
+    
+      }
+  .menu ul {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    max-width: 400px;
+    padding-top: 45px;
+    height: 100%;
+    background: #273d4e;
+    box-shadow: 0 5px 10px #252547;
+    z-index: 12;
+    transition: all 0.3s ease;
+  }
+
+  .menu ul a{
+   display: block;
+   font-size: 18px;
+   width: 100%;
+   margin-top: 10px;
+   box-shadow: none;
+   text-align: center;
+  }
+  #buscador{
+  display: flex;
+  align-items: center;
+  color: white;
+  width: 100%;
+  gap: 0px;
+  margin: 0px 0px;
+}
+#vacio{
+  width: 0;
+  margin-right: 0px;
+  
+}
+
+}
+
+@media (max-width:940px) {
+
+body{
+          margin: 0px 0px;
+          display: grid;
+          grid-template-rows: 350px 1000px 600px 20px;
+          grid-template-columns: 25% 25% 25% 25%;
+          grid-template-areas: 
+                "as as as as"
+                "is is cu cu"
+                "is is de de"
+                "fo fo fo fo";
+          
+            }
+.titulo {
+  font-size: 50px;
+  
+} 
+
+#dos{
+    grid-area: cu;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin-left: -150px;
+            }
+.bienvenida{
+   
+    width: 450px;
+            }
+.parrafo{
+    margin: 2px;
+    padding: 30px;
+              
+            }
+#menu{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+            }
+#tre{
+    margin-top: -500px;
+    margin-left: -40px;
+      }
+  .menu ul {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    max-width: 400px;
+    padding-top: 45px;
+    height: 100%;
+    background: #273d4e;
+    box-shadow: 0 5px 10px #252547;
+    z-index: 12;
+    transition: all 0.3s ease;
+  }
+
+ 
+  .menu ul a{
+   display: block;
+   font-size: 18px;
+   width: 100%;
+   margin-top: 10px;
+   box-shadow: none;
+   text-align: center;
+  }
+  
+  #buscador{
+  display: flex;
+  align-items: center;
+  color: white;
+    width: 100%;
+  gap: 0px;
+  margin: 0px 0px;
+}
+#vacio{
+  width: 0;
+  margin-right: 0px;
+  
+}
+
+}
+  

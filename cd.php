@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        p{
+    background-color: rgba(199, 139, 139);
+        }
+    </style>
 </head>
 <body>
-    <h2>ya esta lista la prueba</h2>
+    
+    <?php
+    include("eje1.php");
+    ?>
+<p>SOY UN TEXTO DE CD.PHP</p>
 </body>
 </html>

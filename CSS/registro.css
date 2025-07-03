@@ -1,0 +1,232 @@
+
+body{
+             display: grid;
+            grid-template-rows: 400px 600px 20px;
+            grid-column: 25% 25% 25% 25%;
+            grid-template-areas: 
+            "as as as as"
+            "re re re re"
+            "fo fo fo fo" ;
+            gap: 30px;
+}
+/*BARRA_SUP*/
+    
+header{
+    grid-area: as;
+}
+
+#cabecera{
+    display: flex; 
+    flex-direction: column;
+    height: 90px;
+}     
+
+.foto{
+  width: 70px;
+  height: 70px;
+  border-radius: 55%;
+}
+
+.logo {
+  padding: 100px;
+  background:rgb(7, 16, 22);
+  display: flex;
+  flex-direction: row;
+
+  
+}
+.titulo {
+  font-size: 50px;
+  color: white;
+  text-decoration: none;
+  padding-left: 20px;
+} 
+.barra{
+  display: flex;
+  flex-direction: row;
+
+}
+.barra_plo{
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  height: 100px;
+  font-size: 20px;
+ 
+
+}
+
+.botones{
+  background-color: gray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin-right: 10px;
+  
+}
+.menu .inicio{
+  display: flex;
+  justify-content: center;
+  background-color: white; 
+  border-radius: 20px;
+  color: black;
+  margin-left: -30px;
+  margin-right: 20px;
+  width: 70px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.bot{
+  border-radius: 20px;
+  height: 20px;
+  font-size: 10px;
+  background-color: #252547; 
+  color: white; 
+  
+  
+}
+
+#buscador{
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  background-color: #252547;
+  color: white;
+  width: 30%;
+  margin: 0px 3px;
+  font-size: 20px;
+}
+#vacio{
+  display: flex;
+  align-items: center;
+  background-color: gray;
+  margin-right: 3px;
+  width: 10%;
+}
+
+.menu ul a{
+
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 10px;
+  font-weight: 400;
+  padding: 10px 14px;
+  transition-property: background;
+ 
+}
+
+ /*CUERPO*/
+  #form_registro{
+    grid-area: re;
+        display: flex;
+        flex-direction: column;
+        margin-left: 20em;
+        max-width: 500px;
+        max-height: 300px;
+        background-image: url(registro.PNG);
+        background-repeat: no-repeat;
+        background-position: 50px;
+        background-size: 350px;
+        background-color: #1F232E;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+        border-radius: 20px;
+        border-color: #63656D;
+        padding: 100px;
+     }
+
+     #t_registro{
+        margin-top: -60px;
+        margin-bottom: 50px;
+        margin-left: 185px;
+        font-size: 40px;
+        padding: 5px;
+     }
+     .label_registro{
+       max-width: 240px;
+       max-height: 20px;
+       opacity: 0.8;
+       border-color: #63656D;
+       background-color: #63656D;
+       border-radius: 20px;
+       font-size: 15px;
+       margin-top: -15px;
+       margin-left: 235px;
+       padding-top: 5px;
+       padding-bottom: 5px;
+       padding-left: 15px;
+  
+      
+     }
+
+     .registro_espacios{
+       max-width: 130px;
+       max-height: 20px;
+       background-color:#63656D;
+       border-color: rgb(156, 156, 156);
+       margin-left: 20px;
+       border-top: 0px;
+       border-left: 0px;
+       border-bottom: 0px;
+       border-right: 0px;
+
+     }
+    #label_apellido{
+        margin-bottom: 30px;
+     }
+     #label_curso{
+        display: block;
+        max-width: 90px;
+     }
+     #input_curso{
+        max-width: 50px;
+        margin-left: 3px;
+     }
+     #label_ci{
+        margin-top: -47px;
+        margin-left: 385px;
+        max-width: 90px;
+     }
+     #input_ci{
+        max-width: 90px;
+     }
+
+     .form_botones{
+        border-color: #ffffff;
+        border-radius: 30px;
+        padding: 15px;
+        max-height: 70px;
+        font-size: 11px;
+        border-top: 0px;
+        border-left: 0px;
+        border-bottom: 0px;
+        border-right: 0px;
+     }
+
+     #form_borrar{
+        margin-left: 150px;
+        max-width: 90px;
+
+     }
+     #form_enviar{
+        margin-top: -43px;
+        margin-left: 255px;
+        max-width: 90px;
+
+     }
+     footer{
+        grid-area: fo;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color:rgb(31,35,46) ;
+        color: white;
+    }
+    

@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
+
+body {
+  font-family: 'Graduate', serif;
+  margin: 0px;
+   
+}
+footer {
+  font-family: 'Questrial', sans-serif;
+}
+
+
+body{     
+
+          background-color: #1d1e22;  
+          display: grid;
+          grid-template-rows: 500px 1000px 20px;
+          grid-template-columns: 20% 80%;
+          grid-template-areas: 
+          "cabe cabe"
+          "iz ta"
+          "fo fo" ;
+          margin: 0px;
+          animation: cambio_color 5s linear;
+  }
+  @keyframes cambio_color{
+    from {
+      background-color: #1d1e22;
+    }
+    to{
+      background-color: aquamarine;
+    }
+  }
+header{
+          grid-area: cabe;
+           background-size: contain;
+           background-attachment: fixed;
+           
+      }
+
+.titulo {
+  font-size: 80px;
+  color: white;
+  margin-top: 250px;
+  margin-bottom: 5px;
+  margin-left: 200px;
+
+} 
+
+.nombre_prof{
+    font-size: 40px;
+    color: white;
+    margin-top: 5px;
+    margin-left: 215px;
+}
+
+/*sec 1*/
+      #pendientes, #personas, #archivos, #calificaciones{
+        margin: 5px 50px;
+        margin-right: 5px;
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 15px;
+       
+      
+      }
+
+      #uno{
+          grid-area: iz;
+          display: flex;
+          flex-direction: column;
+          background-color:#1d1e22;
+          margin-top: 40px;
+      }
+
+      .cuadros{
+        text-decoration: none;
+        color: black;
+       
+      }
+      #pendientes{
+        padding: 50px;
+        font-size: 20px;
+        
+      
+      }
+      #pendientes:hover{
+       box-shadow: 0 0 10px rgb(255, 255, 255);
+      }
+      #tarea{
+        text-decoration: none;
+        border-radius: 15px;
+      
+      }
+     
+      #tarea:hover{
+       background-color: white;
+        
+      }
+
+     #personas:hover{
+       box-shadow: 0 0 10px rgb(255, 255, 255);
+      filter: drop-shadow(-10px -10px 30px white, 
+        10px 10px 30px 0);
+      }
+     
+      #archivos:hover{
+       box-shadow: 0 0 10px rgb(255, 255, 255);
+      }
+      #calificaciones:hover{
+       box-shadow: 0 0 10px rgb(255, 255, 255);
+      }
+    
+      #tare, #person, #archiv{
+        
+        width: 40px;
+        margin: 10px 15px;
+      }
+    
+/*sec2*/
+
+      #dos{
+          background: #1d1e22;
+          grid-area: ta;
+          display: flex;
+          flex-direction: column;  
+          margin-top: 40px;   
+    
+      }
+      .caja_comentario, .caja_comentario_2, .tarea_asig, .texto_comentario{
+        text-decoration: none;
+        margin: 15px 10px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        
+       
+             
+      } 
+      .caja_comentario, .caja_comentario_2, .tarea_asig{
+        text-decoration: none;
+        margin: 10px 10px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 5px 5px 20px;
+       
+             
+      } 
+  
+      .caja_comentario{
+        margin-top: 30px;
+        background-color:#ffffff;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+      
+      }
+
+      .texto_comentario{
+        gap: 10px;
+   
+      }
+
+
+      .caja_comentario_2{
+        background-color: white;
+        border-radius: 30px;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+       
+        
+      }
+      .profe{
+        display: flex;
+        flex-direction: row;
+      }
+      
+        .fecha, .respuesta{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        } 
+
+
+        .tarea_asig{
+        text-decoration: none;
+        background-color: white;
+        color: black;
+        border-radius: 30px;
+        padding: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        animation: salir 1.2s linear; 
+        transition: transform 0.4s ease;
+      }
+
+      .tarea_asig:hover{
+        transform: scale(0.9); 
+}
+
+       .disenio{
+
+        text-decoration: none;
+        color: black;
+      }
+
+      .disenio::after{
+    content: '';
+    width: 0;
+    background-color: #1d1e22;
+    display: block;
+    height: 3px;
+    transition: 0.5s;
+  }
+
+      .disenio:hover::after{
+    width: 100%;
+  }
+  
+
+
+      #flecha, .respuesta{
+        margin-top: 10px;
+        width: 100%;
+        border-top: 1px solid #1d1e22;
+       }
+
+       
+
+      /*imagenes*/
+      #burbuja, #user, #flecha, #asigna{
+      width: 45px;
+      height: 45px;
+     }
+
+      footer{
+          grid-area: fo;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          background-color: white ;
+          color: #1d1e22;;
+      }
+
+
+ @media(max-width: 800px){
+          body{
+              display: grid;
+              grid-template-columns: 100%;
+              grid-template-rows: 270px 100px 300px 300px;
+              grid-template-areas: 
+              "cabe"
+              "iz"
+              "ta"
+              "fo" ;
+              display: flex;
+              flex-direction: column;
+              
+          }
+
+          
+.titulo {
+  font-size: 50px;
+  margin-top: 170px;
+  margin-left: 35px;
+}
+.nombre_prof{
+    font-size: 20px;
+    color: white;
+    margin-top: 5px;
+    margin-left: 55px;
+    margin-bottom: 10px;
+}
+
+
+  #uno {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    background-color:#ffffff;
+    padding: 5px;
+    gap: 10px;
+   }
+
+  #pendientes, #personas, #archivos, #calificaciones {
+    
+    border-radius: 0px;
+    padding: 10px;
+    width: 15%;
+    text-align: center;
+    font-size: 0%;
+    margin: 5px 10px;
+
+  }
+    #tare, #person, #archiv{
+        width: 0px;
+       
+      }
+
+  .cuadros {
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+  }
+
+  .cuadros::after{
+    content: '';
+    width: 0;
+    background-color: #1d1e22;
+    display: block;
+    height: 3px;
+    transition: 0.3s;
+  }
+
+  .cuadros:hover::after{
+    width: 100%;
+  }
+
+ .disenio{
+
+  text-decoration: none;
+  color: black;
+ }
+}

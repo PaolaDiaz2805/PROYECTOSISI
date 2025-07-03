@@ -1,0 +1,211 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
+
+footer{
+    font-family: 'Questrial', sans-serif;
+}
+a{ 
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(31,35,46) ;
+}
+body{
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 980px 20px;
+    grid-template-areas: 
+    "al al"
+    "fo fo"
+    ; 
+}
+
+/*media*/
+@media (max-width:900px) {
+    body{
+        display: block;
+        height: 1000px;
+    }
+    .todo{
+        display: block;
+    }
+ .she{
+        display: block;
+    width: 400px;
+    margin-bottom: 100px;
+ }
+.centro{
+    display: flex;
+    flex-direction: column;
+}
+footer{
+        display: block;
+}
+
+}
+
+
+.todo{
+    grid-area: al;
+    font-family: "Graduate",serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer{
+    grid-area: fo;
+}
+
+
+.she{
+    background-color: rgb(31,35,46);
+    border-radius: 20px;
+    margin-top: 130px;
+    padding: 10px;
+}
+.formulario{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.out{
+    width: 40px; 
+}
+.dos{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-around;
+}
+.titulo{
+    font-size: 50px;
+    color: white;
+}
+.centro{
+    padding: 3em  5em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+.campos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.preguntas{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+}
+.imagen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nube{
+    width: 200px;
+}
+.sube{
+    font-size: 15px;
+    display: flex;
+    text-align: center;
+}
+.camp{
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+}
+.clase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cod{
+    font-size: 30px;
+    color: black;
+    background-color: white;
+
+}
+.crear{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.but{
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 17px;
+}
+footer{
+    background-color: rgb(31,35,46);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+/*aimacones*/
+.nube:hover{
+    animation: bounce 0.2s ease;
+}
+.out{
+    animation: salir 1.2s linear; 
+    transition: transform 0.4s ease;
+}
+.out:hover{
+    transform: scale(1.3); 
+}
+.camp,.crear,.titulo{
+    transition: transform 0.4s ease;
+}
+.camp:hover ,.crear:hover,.titulo:hover{
+    transform: scale(1.1); 
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-20px); }
+  100%  { transform: translateY(0); }
+}
+
+@keyframes salir {
+  0%   { transform: translateX(-50px); opacity: 0;}
+  30%  { transform: translateX(-15px); opacity: 0;}
+  50%  { transform: translateX(0); opacity: 0.5;}
+  70%  { transform: translateX(-10px); opacity: 0.6;}
+  100% { transform: translateX(0); opacity: 1;}
+}
+
+.she{
+    animation: sara 0.5s ease-in;
+}
+
+@keyframes sara {
+  0%   { transform: translateY(50px); opacity: 0;}
+  60%  { transform: translateY(30px); opacity: 0.5;}
+  100%  { transform: translateY(0); opacity: 1;}
+}
+ 
+/*validacion*/
+
+label.error {
+    font-family: "Questrial", sans-serif;
+    background: #ff4d4d;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-left: -60px;
+    margin-top: -30px;
+    position: absolute;
+    z-index: 1000;
+    animation: popin 0.3s ease-out;
+}
+
+@keyframes popin {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
