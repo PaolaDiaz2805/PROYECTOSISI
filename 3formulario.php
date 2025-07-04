@@ -32,7 +32,7 @@
 
             <label class="">NOMBRE:</label><br>
             <input type="text" name="asu" id="uno"><br>
-            <label class="cada">COMENTARIO:</label><br>
+            <label class="cada">QUIERES COMENTAR:</label><br>
             <textarea name="com" id=""></textarea><br>
             <input type="submit"> 
 
