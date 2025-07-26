@@ -30,9 +30,9 @@
         <br>
         <form action="4archivo2.php" method="post">
 
-            <label class="">ASUNTO:</label><br>
+            <label class="">NOMBRE:</label><br>
             <input type="text" name="asu" id="uno"><br>
-            <label class="cada">COMENTARIO:</label><br>
+            <label class="cada">ACASO QUIERES COMENTAR:</label><br>
             <textarea name="com" id=""></textarea><br>
             <input type="submit"> 
 
