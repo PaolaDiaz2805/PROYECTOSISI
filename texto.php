@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        p{
-    background-color: rgba(199, 139, 139);
+        .solo{
+    background-color: red;
+    color: white;
         }
     </style>
 </head>
 <body>
-    
+    <div class="solo">
     <?php
-    include("eje1.php");
+    echo "Bienvenido a los comentarios";
     ?>
-<p>SOY UN TEXTO DE CD.PHP</p>
+    </div>
 </body>
 </html>

@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .hola{
-    background-color: red;
+        p{
+    background-color: rgba(199, 139, 139);
         }
-    </style>
+    </style> 
 </head>
 <body>
-
-<p class="hola">SOY UN TEXTO DE eje1.PHP</p>
+    
+    <?php
+    include("2eje1.php");
+    ?>
+<p>SOY UN TEXTO DE CD.PHP</p>
 </body>
 </html>
