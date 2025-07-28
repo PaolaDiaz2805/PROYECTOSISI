@@ -6,41 +6,16 @@
   <meta name="viewport" content="width=device-width">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
-  <link href="CSS/inicio.css" rel="stylesheet" type="text/css" />
 
- 
+  <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
 </head>
-
-<body>
+ 
+<body class="gg">
 
   <header> 
-        <div class="encabezado"> 
-                    <img src="FOTOS/logo.png" class ="logo_cole"/>
-                    <a href="inicio.php" class="titulo">Unidad Educativa Federico Aguiló</a>
-                </div>
-            <div class="menu">
-                    <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
-                    <div id="menu_desple" class="barra">
-                    <ul class="botones">
-                    <li><a href="" id="primero" class="inicio"><i></i>INICIO</a></li>
-                    <li><a href="" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
-                    <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
-                    <li><a href="" class="bot"><i></i>SERVICIOS EN LÍNEA</a></li>
-                    <li><a href="" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
-                    <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
-                    <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
-                    </ul>
-                    </div>
-                        <div class="buscador" >Buscar...</div>
-                        <div class="vacio"></div>
-                    </div>
-            <script>
-              function toggleMenu() {
-  const dropdown = document.getElementById("menu_desple");
-  dropdown.classList.toggle("activo");
-}
-            
-</script>
+        <?php
+    include("1b.php");
+    ?>
   </header> 
   <div class="cuerpo">
   <section class="b_izquierda">
@@ -121,7 +96,9 @@
         </div>  
   </section>
   </div>
-    <footer>©Copyright U.E. Federico Aguiló</footer>
+    <?php
+    include("1ca.php");
+    ?>
 </body>
 
 </html>

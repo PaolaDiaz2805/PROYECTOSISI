@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
+
+body {
+  font-family: 'Graduate', serif;
+  margin: 0px;
+   
+}
+body{
+    margin: 0px; 
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 350px;
+    grid-template-areas: 
+    "he";
+}
+
+header{
+    grid-area: he;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+.encabezado{
+    background-color: #1F232E;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 60px;
+}
+.titulo{
+    color: white;
+    font-size: 50px;
+    text-decoration: none;
+}
+.menu{
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+    margin: 0px;
+    
+}
+.buscador{
+    display: flex;
+    align-items: center;
+    padding: 23px 200px 23px 25px;
+    background-color: #1F232E;
+    color: white;
+}
+.vacio{
+    background-color:gray;
+    width: 330px;
+    height: 100%;
+}
+.botones{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    gap: 65px;
+    padding-right:10px ;
+    list-style: none;
+    
+}
+#menu_desple{
+    padding: 5px; 
+    background-color: gray;
+}
+.bot,.inicio{
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 30px;
+    font-size: 20px;
+    
+}
+.inicio{
+    background-color: #1F232E;
+    margin-left: -35px;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 16px;
+    color: white;
+}
+.bot{
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+    color: white;
+    outline: 2px solid white;
+    position: relative;
+    transition: 0.3s;
+}
+
+.bot:hover{
+    outline: 2px solid #686c75;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.bot:hover::after{
+    transform: scale(1, 1);
+}
+
+.logo_cole{
+    width:100px; 
+    height:100px;
+    border-radius: 50%;
+}
+
+.logo_cole{
+    animation: t 0.6s ease;
+}
+@keyframes t {
+    0% {transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.menu-boton {
+  display: none;
+  border: none;
+  margin: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+}
+ .ft{
+    height: 50px;
+ }
+#dropdown {
+  display: flex;
+}
+
+
+@media (max-width: 1900px) {
+
+.inicio{
+    margin-left: 3px;
+  }
+  .bot,.inicio{
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+    color: white;
+    outline: 2px solid white;
+    position: relative;
+    transition: 0.3s;
+}
+
+.bot:hover,.inicio:hover{
+    outline: 2px solid #686c75;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+.menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+.menu-boton {
+    display: block;
+    margin: 10px 0 10px 15px;
+    z-index: 2;
+  }
+
+#menu_desple {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(13, 10, 51);
+    z-index: 1;
+  }
+
+#menu_desple.activo {
+    display: block;
+  }
+
+.botones {
+    background-color: transparent;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 10px;
+  }
+
+.buscador,.vacio {
+    display: none;
+  }
+
+}
+
+@media (max-width:790px) {
+    body{
+            margin: 0px;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 350px;
+            grid-template-areas: 
+            "he";
+        
+    }
+      
+}
+a{
+    text-decoration: none;
+}
+    </style> 
+</head>
+<body>
+    <header> 
+        <div class="encabezado"> 
+                    <img src="FOTOS/logo.png" class ="logo_cole"/>
+                    <a href="inicio.php" class="titulo">Unidad Educativa Federico Aguiló</a>
+                </div>
+            <div class="menu">
+                    <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
+                    <div id="menu_desple" class="barra">
+                    <ul class="botones">
+                    <li><a href="" id="primero" class="inicio"><i></i>INICIO</a></li>
+                    <li><a href="" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
+                    <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
+                    <li><a href="" class="bot"><i></i>SERVICIOS EN LÍNEA</a></li>
+                    <li><a href="" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
+                    <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
+                    <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
+                    </ul>
+                    </div>
+                        <div class="buscador" >Buscar...</div>
+                        <div class="vacio"></div>
+                    </div>
+            <script>
+              function toggleMenu() {
+  const dropdown = document.getElementById("menu_desple");
+  dropdown.classList.toggle("activo");
+}
+            
+</script>
+  </header> 
+</body>
+</html>

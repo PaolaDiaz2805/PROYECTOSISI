@@ -6,15 +6,17 @@
     <title>Document</title>
     <style>
         p{
-    background-color: rgba(199, 139, 139);
+    background-color: red;
         }
     </style> 
 </head>
 <body>
-    
-<p>SOY UN TEXTO DE CD.PHP</p>
     <?php
-    include("2eje1.php");
+    include("1b.php");
+    ?>
+<p>CONTENIDO</p>
+    <?php
+    include("1ca.php");
     ?>
 </body>
 </html>
