@@ -15,10 +15,10 @@
      $archivo=fopen('punto.txt','a');
 
     fwrite($archivo,$asunto .PHP_EOL);
-    
+     
     fwrite($archivo,$come .PHP_EOL);
 
-    echo "<a href='archivo3.php'> Ir a comentarios </a>";
+    echo "<a href='5archivo3.php'> Ir a comentarios </a>";
     ?>
 
 </body>
