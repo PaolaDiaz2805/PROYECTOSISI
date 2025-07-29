@@ -1,21 +1,54 @@
-<?php   
- 
+<?php
+session_start();
+
 $archivo = 'mensajes.txt';
+$archivo_respuestas = 'respuestas.txt';
 
-// Guardar mensaje si se envió el formulario
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $autor = trim($_SESSION['nom']);
+// Conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "proyectoSISI";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+if (!isset($_SESSION['ci'])){
+    header("Location:FormSession.php");
+}
+// Obtener nombre del usuario desde la base de datos usando su CI
+$autor = 'Usuario desconocido';
+if (isset($_SESSION['ci'])) {
+    $ci = $_SESSION['ci'];
+    $sql_nombre = "SELECT Nombres FROM informacion WHERE CI = '$ci'";
+    $res_nombre = $conn->query($sql_nombre);
+    if ($res_nombre && $res_nombre->num_rows > 0) {
+        $autor = $res_nombre->fetch_assoc()['Nombres'];
+    }
+}
+
+// Guardar comentario principal
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     $contenido = trim($_POST['comen']);
+    $fecha = date("Y-m-d H:i:s");
+    $id_comentario = uniqid();
 
-        $fecha = date("Y-m-d H:i:s");
-        $entrada = "$fecha | $autor: $contenido" . PHP_EOL;
+    $entrada = "$id_comentario|$fecha|$autor|$contenido" . PHP_EOL;
+    file_put_contents($archivo, $entrada, FILE_APPEND);
+}
 
-        $f = fopen($archivo, 'a');
-        fwrite($f, $entrada);
-        fclose($f);
-    
+// Guardar respuesta a comentario
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['respuesta']) && isset($_POST['responder_a'])) {
+    $contenido = trim($_POST['respuesta']);
+    $fecha = date("Y-m-d H:i:s");
+    $comentario_id = $_POST['responder_a'];
+
+    $respuesta = "$comentario_id|$fecha|$autor|$contenido" . PHP_EOL;
+    file_put_contents($archivo_respuestas, $respuesta, FILE_APPEND);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -33,20 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <script src="script.js"></script> 
   <header> 
         <?php
-session_start();
-    $servername = "localhost";
-    $username = "root";
-    $password="";
-    $dbname="proyectoSISI";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Conexion fallida: ". $conn->connect_error);
-    }
-    if (!isset($_SESSION['ci'])){
-    header("Location:FormSession.php");
-}
+    
     $id=$_GET['id'];
     $sql= "SELECT * FROM  CLASES WHERE ID=$id";
     $resultado=mysqli_query($conn,$sql);
@@ -87,43 +108,69 @@ session_start();
   <div class="caja_comentario"> 
    <div class="texto_comentario"> <img src="FOTOS/burbuja.png" id="burbuja" width="45px">
    <form  method="post">
-    <input type="text" name="autor" placeholder="Tu nombre" required><br><br>
     <p for="">Comenta algo a tu clase..</p>
     <textarea name="comen" id="" cols="40" rows="2"> </textarea>   
     <input type="submit" value="enviar">
     </form>
-    <h2>Publicaciones</h2>
-
-  <?php
-  if (file_exists($archivo)) {
-      $lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-      $lineas = array_reverse($lineas); // Mostrar las más recientes arriba
-
-      foreach ($lineas as $linea) {
-          echo '<div class="post">' . htmlspecialchars($linea) . '</div>';
-      }
-  } else {
-      echo '<p>No hay publicaciones aún.</p>';
-  }
-  ?>
+    
    </div>
   </div>
- 
-        
-  <div class="caja_comentario_2">
-    <div class="profe"> <img src="FOTOS/user.png" id="user"> 
-    <p class="datos_profe"> Brandon Quiroga </p>
-              
-    </div>
-    <input type="datetime-local" class="datos_profe">
-    <div class="respuesta"> <img src="FOTOS/flecha.png" height="30px" > Añade un comentario a la clase..</div>
-    </div>
+ <h2>Publicaciones</h2>
+<?php
+if (file_exists($archivo)) {
+    $lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $lineas = array_reverse($lineas);
 
-    <div class="tarea_asig">
-    <img src="FOTOS/asigna.png" id="asigna">
-    <a href="" class="disenio"> NUEVA TAREA </a>
-    </div>       
-        
+    // Cargar respuestas
+    $respuestas = [];
+    if (file_exists($archivo_respuestas)) {
+        $res = file($archivo_respuestas, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($res as $r) {
+            list($comentario_id, $fecha_r, $autor_r, $contenido_r) = explode('|', $r);
+            $respuestas[$comentario_id][] = [
+                'fecha' => $fecha_r,
+                'autor' => $autor_r,
+                'contenido' => $contenido_r
+            ];
+        }
+    }
+
+    foreach ($lineas as $linea) {
+        list($id, $fecha, $autor, $contenido) = explode('|', $linea);
+        echo '
+        <div class="caja_comentario_2">
+            <div class="profe">
+                <img src="FOTOS/user.png" id="user">
+                <p class="datos_profe">' . htmlspecialchars($autor) . '</p>
+            </div>
+            <input type="datetime-local" class="datos_profe" value="' . date("Y-m-d\TH:i", strtotime($fecha)) . '" readonly>
+            <div class="respuesta">' . htmlspecialchars($contenido) . '</div>
+            
+            <form method="post" action="">
+                <input type="hidden" name="responder_a" value="' . $id . '">
+                <textarea name="respuesta" placeholder="Responder..." required></textarea>
+                <input type="submit" value="Responder">
+            </form>';
+
+        // Mostrar respuestas si existen
+        if (isset($respuestas[$id])) {
+            foreach ($respuestas[$id] as $r) {
+                echo '
+                <div class="caja_respuesta" style="margin-left:30px; margin-top:10px; border-left:2px solid #ccc; padding-left:10px;">
+                    <p><strong>' . htmlspecialchars($r['autor']) . '</strong> [' . $r['fecha'] . ']:</p>
+                    <p>' . htmlspecialchars($r['contenido']) . '</p>
+                </div>';
+            }
+        }
+
+        echo '</div>';
+    }
+} else {
+    echo '<p>No hay publicaciones aún.</p>';
+}
+?>
+
+  
 </section>
  
     <footer>©Copyright Colegio Pedro Poveda</footer>
