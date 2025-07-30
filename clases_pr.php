@@ -66,11 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['respuesta']) && isset
   <script src="script.js"></script> 
   <header> 
    <?php
-    if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    if (!isset($_GET['ID']) || !is_numeric($_GET['ID'])) {
         die("ID de clase no válido.");
     }
 
-    $id = intval($_GET['id']);
+    $id = intval($_GET['ID']);
     $sql = "SELECT * FROM CLASES WHERE ID = $id";
     $resultado = $conn->query($sql);
 
