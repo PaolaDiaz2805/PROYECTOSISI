@@ -63,13 +63,18 @@ footer {
     align-items: center;
  
 }
+.ns{
+    display: flex;
+    justify-content: space-around;
+}
 .bienvenida{
     display: flex;
     flex-direction: column;
-    margin: 0px 10px 10px 10px;
+    margin: -400px 10px 10px 10px;
 }
 .bienvenidos_texto{
-    font-size: 30px;
+    font-size: 50px;
+    text-align: center;
 }
 .b_derecha{
     grid-area: de;
@@ -255,7 +260,3 @@ a{
         background-color: gray;
         color: white;
     } 
-
-    .ns{
-        display: flex;
-    }

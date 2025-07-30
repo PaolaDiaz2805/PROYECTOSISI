@@ -71,18 +71,23 @@
   </section>
   <section class="centro">
               <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">BIENVENIDOS..</h1>
-                        <div class="ns">
-                            <img class="pho" src="FOTOS/SO.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SA.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SE.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SU.jpeg" width="200px" height="200px">
-                        </div>
+                        <h1 class="bienvenidos_texto">MISION</h1>
                         <aside class="parrafo">
-                        <p>Nos sentimos orgullosos por llevar adelante el quehacer pedagógico a partir del enfoque de <br>
-                            la EDUCACIÓN PERSONALIZADA , que permite brindar una experiencia educativa de crecimiento <br>
-                            intelectual y espiritual con la participación activa de los estudiantes que forman parte de <br>
-                            la familia Rene Barrientista.</p>
+                        <p>Formar estudiantes con sentido crítico reflexivo, creativos, productivos y de acción <br>
+                        transformadora capaces de construir su propio aprendizaje a través de un proceso integral, <br>
+                        participativo y significativo fortalecido en valores socio comunitarios que le permitan dar <br>
+                        respuesta a sus necesidades y aspiraciones con el apoyo de docentes capacitados y actualizados<br>
+                         en nuevos enfoques y estrategias pedagógicas con la participación de la comunidad educativa.
+</p>
+                        </aside>
+                        
+                        <h1 class="bienvenidos_texto">VISION</h1>
+                        <aside class="parrafo">
+                        <p>La Unidad Educativa Rene Barrientos Ortuño “A”, pretende formar estudiantes con saberes <br>
+                        humanísticos, científicos que articulen la teoría con la práctica hacia una formación superior, <br>
+                        brindando las condiciones óptimas de infraestructura, equipamiento y la participación comprometida <br>
+                        de la comunidad educativa.
+</p>
                         </aside>
               </section>
     </section> 
