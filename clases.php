@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['respuesta']) && isset
         <?php
 
     
-    $id=$_GET['id'];
+    $id=$_GET['ID'];
     $sql= "SELECT * FROM  CLASES WHERE ID=$id";
     $resultado=mysqli_query($conn,$sql);
     if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['respuesta']) && isset
   <div class="caja_comentario"> 
    <div class="texto_comentario"> <img src="FOTOS/burbuja.png" id="burbuja" width="45px">
    <form  method="post">
-    <p for="">Comenta algo a tu clase..</p>
+    <p for="">Comenta algo a la clase..</p>
     <textarea name="comen" id="" cols="40" rows="2"> </textarea>   
     <input type="submit" value="enviar">
     </form>
@@ -142,6 +142,7 @@ if (file_exists($archivo)) {
             <div class="profe">
                 <img src="FOTOS/user.png" id="user">
                 <p class="datos_profe">' . htmlspecialchars($autor) . '</p>
+                <a><img src="FOTOS/ing.png" width="40px" ></img> </a>
             </div>
             <input type="datetime-local" class="datos_profe" value="' . date("Y-m-d\TH:i", strtotime($fecha)) . '" readonly>
             <div class="respuesta">' . htmlspecialchars($contenido) . '</div>
