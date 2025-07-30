@@ -218,12 +218,12 @@ a{
     text-decoration: none;
 }
     </style> 
-</head>
+</head> 
 <body>
     <header> 
         <div class="encabezado"> 
-                    <img src="FOTOS/logo.png" class ="logo_cole"/>
-                    <a href="inicio.php" class="titulo">Unidad Educativa Federico Aguiló</a>
+                    <img src="FOTOS/logo.jpeg" class ="logo_cole"/>
+                    <a href="inicio.php" class="titulo">Unidad Educativa René Barrientos</a>
                 </div>
             <div class="menu">
                     <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>

@@ -12,11 +12,11 @@
 </head>
 <body>
     <?php
-    include("1b.php");
+    include("encabezado.php");
     ?>
-<p>CONTENIDO</p>
+<p>EXAMPLE</p>
     <?php
-    include("1ca.php");
+    include("footer.php");
     ?>
 </body>
 </html>

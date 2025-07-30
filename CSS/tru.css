@@ -24,7 +24,7 @@ footer {
     grid-area: bd;
     display: flex;
     flex-direction: row;
-    padding: 20px 40px;
+    padding: 10px 40px;
     display: grid;
     grid-template-columns: 20% 60% 20%;
     grid-template-rows: 100%;
@@ -55,7 +55,7 @@ footer {
 }
 
 .centro{
-    margin: 20px 25px;
+    margin: 0px 25px;
     grid-area: ce;
     display: flex;
     flex-direction: column;
@@ -66,17 +66,11 @@ footer {
 .bienvenida{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: 0px 10px 10px 10px;
 }
-.texto{
-    margin: 10px 10px;
-    padding: 10px;
-    font-size: 50px;
+.bienvenidos_texto{
+    font-size: 30px;
 }
-.texto2{
-    font-size: 20px;
-}
-
 .b_derecha{
     grid-area: de;
 }
@@ -204,7 +198,7 @@ height: 40px;
   
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 1000px 1000px 800px;
+        grid-template-rows: 2000px 1000px 200px;
         grid-template-areas: 
         "ce"
         "iz"
@@ -216,7 +210,7 @@ height: 40px;
             margin: 0px;
             display: grid;
             grid-template-columns: 100%;
-            grid-template-rows: 350px 3000px 20px;
+            grid-template-rows: 350px 4000px 20px;
             grid-template-areas: 
             "he"
             "bd"
@@ -261,3 +255,7 @@ a{
         background-color: gray;
         color: white;
     } 
+
+    .ns{
+        display: flex;
+    }

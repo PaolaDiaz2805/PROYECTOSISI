@@ -14,7 +14,7 @@
 
   <header> 
         <?php
-    include("1b.php");
+    include("encabezado.php");
     ?>
   </header> 
   <div class="cuerpo">
@@ -72,12 +72,17 @@
   <section class="centro">
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">BIENVENIDOS..</h1>
-                        <img src="FOTOS/SA.png" class="parrafo">
+                        <div class="ns">
+                            <img class="pho" src="FOTOS/SO.jpeg" width="200px" height="200px">
+                            <img class="pho" src="FOTOS/SA.jpeg" width="200px" height="200px">
+                            <img class="pho" src="FOTOS/SE.jpeg" width="200px" height="200px">
+                            <img class="pho" src="FOTOS/SU.jpeg" width="200px" height="200px">
+                        </div>
                         <aside class="parrafo">
                         <p>Nos sentimos orgullosos por llevar adelante el quehacer pedagógico a partir del enfoque de <br>
                             la EDUCACIÓN PERSONALIZADA , que permite brindar una experiencia educativa de crecimiento <br>
                             intelectual y espiritual con la participación activa de los estudiantes que forman parte de <br>
-                            la familia Aguilista.</p>
+                            la familia Rene Barrientista.</p>
                         </aside>
               </section>
     </section>
@@ -94,10 +99,13 @@
         <div >
             <h2 class="barra_redes">Visitanos</h2>
         </div>  
+        <div >
+            <h2 class="barra_redes">Visitanos</h2>
+        </div> 
   </section>
   </div>
     <?php
-    include("1ca.php");
+    include("footer.php");
     ?>
 </body>
 
