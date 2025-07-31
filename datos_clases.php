@@ -38,9 +38,14 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssi",$asunta, $contenido, $fechaActual, $id_);
 
 if ($stmt->execute()) {
-    // Redirigir de nuevo a la página de clase
-    header("Location: clases.php?ID=$id_");
+        if($_SESSION['rol']==1)
+            header("Location:clases.php?ID=$id_");
+        if($_SESSION['rol']==2)
+            header("Location: clases_pr.php?ID=$id_");
+        
+    
     exit();
+    
 } else {
     echo "Error al insertar publicación: " . $conn->error;
 }
