@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="CSS/in_vacioEstu.css">
 </head>
-<body>
+<body class="bo">
 <?php
 session_start();
     if (!isset($_SESSION['ci'])){
@@ -24,25 +24,9 @@ session_start();
         die("Conexion fallida: ". $conn->connect_error);
     }
 ?>
-    <header> 
-        <div class ="barra_sup">
-            <div class="pedro"><img class ="logo" src="FOTOS/logo.png"> <h2 class="titulo">U.E. FEDERICO AGUILÓ</h2></div> 
-            <img  class="casa" src="FOTOS/casa.png">
-        </div>
-    </header>
-  <div class="cuerpo">
-                <nav class ="barra">
-                    <div class="menu">
-                        <img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
-                            <div id="dropdown" class="menu-contenido">
-                                <a href="#">Inicio</a>
-                                <a href="Bienvenido.php">Datos Personales</a>
-                                <a href="#">Contactanos</a>
-                                <a href="#">Ajustes</a>
-                                <a href="inicioPR.php">Clases creadas</a>
-                            </div>
-                        </div>
-                </nav>
+
+<?php include("cabeza.php"); ?>
+    
                 <nav class ="tablon">
                               <?php 
                                 $id=$_SESSION['ci'];

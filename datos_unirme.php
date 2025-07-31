@@ -26,7 +26,7 @@ else{
 }
 $sql2="INSERT INTO CLASES_HAS_CUENTA(CLASES_ID,CUENTA_User) VALUES ('$idClase','$Estudiante')";
 if ($conn->query($sql2)=== TRUE) {
-            header("Location: clases.php?id=$idClase");
+            header("Location: clases.php?ID=$idClase");
 }else{
     echo "Error: ". $sql ."<br>". $conn->error;
 

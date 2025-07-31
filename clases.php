@@ -31,11 +31,11 @@ if (isset($_SESSION['ci'])) {
 // Guardar comentario principal
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     $contenido = trim($_POST['comen']);
-    $fecha = date("Y-m-d H:i:s");
+    $fecha = date("Y-m-d H:i:s");//arreglar 
     $id_comentario = uniqid();
 
     $entrada = "$id_comentario|$fecha|$autor|$contenido" . PHP_EOL;
-    file_put_contents($archivo, $entrada, FILE_APPEND);
+    file_put_contents($archivo, $entrada, FILE_APPEND);//explicar que es esto
 }
 
 // Guardar respuesta a comentario
@@ -144,7 +144,7 @@ if (file_exists($archivo)) {
                 <p class="datos_profe">' . htmlspecialchars($autor) . '</p>
                 <a><img src="FOTOS/ing.png" width="40px" ></img> </a>
             </div>
-            <input type="datetime-local" class="datos_profe" value="' . date("Y-m-d\TH:i", strtotime($fecha)) . '" readonly>
+            <input type="datetime-local" class="datos_profe" value="' . date("Y-m-d\TH:i:s", strtotime($fecha)) . '" readonly>
             <div class="respuesta">' . htmlspecialchars($contenido) . '</div>
             
             <form method="post" action="">
