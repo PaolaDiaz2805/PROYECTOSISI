@@ -1,179 +1,128 @@
 <?php
 session_start();
 
-$archivo = 'mensajes.txt';
-$archivo_respuestas = 'respuestas.txt';
-
 // Conexión a la base de datos
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "proyectoSISI";
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
-if (!isset($_SESSION['ci'])){
+
+if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");
+    exit();
 }
+
 // Obtener nombre del usuario desde la base de datos usando su CI
 $autor = 'Usuario desconocido';
-if (isset($_SESSION['ci'])) {
-    $ci = $_SESSION['ci'];
-    $sql_nombre = "SELECT Nombres FROM informacion WHERE CI = '$ci'";
-    $res_nombre = $conn->query($sql_nombre);
-    if ($res_nombre && $res_nombre->num_rows > 0) {
-        $autor = $res_nombre->fetch_assoc()['Nombres'];
+$ci = $_SESSION['ci'];
+$sql_nombre = "SELECT Nombres FROM informacion WHERE CI = '$ci'";
+$res_nombre = $conn->query($sql_nombre);
+if ($res_nombre && $res_nombre->num_rows > 0) {
+    $autor = $res_nombre->fetch_assoc()['Nombres'];
+}
+
+// Obtener datos de la clase actual
+  
+    if (!isset($_GET['ID']) || !is_numeric($_GET['ID'])) {
+        die("ID de clase no válido.");
     }
-}
 
-// Guardar comentario principal
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
-    $contenido = trim($_POST['comen']);
-    $fecha = date("Y-m-d H:i:s");
-    $id_comentario = uniqid();
+    $id = intval($_GET['ID']);
+    $sql = "SELECT * FROM CLASES WHERE ID = $id";
+    $resultado = $conn->query($sql);
 
-    $entrada = "$id_comentario|$fecha|$autor|$contenido" . PHP_EOL;
-    file_put_contents($archivo, $entrada, FILE_APPEND);
-}
-
-// Guardar respuesta a comentario
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['respuesta']) && isset($_POST['responder_a'])) {
-    $contenido = trim($_POST['respuesta']);
-    $fecha = date("Y-m-d H:i:s");
-    $comentario_id = $_POST['responder_a'];
-
-    $respuesta = "$comentario_id|$fecha|$autor|$contenido" . PHP_EOL;
-    file_put_contents($archivo_respuestas, $respuesta, FILE_APPEND);
-}
-?>
-
+    if ($resultado && $resultado->num_rows >0) {
+        $fila = $resultado->fetch_assoc();
+        $titulo = $fila['Materia'];
+        $curso = $fila['Grado'];
+    } else {
+        die("Clase no encontrada.");
+    }
+    ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>ForwardSoft</title>
-  <link href="CSS/clases.css" rel="stylesheet" type="text/css" />
-
- 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ForwardSoft</title>
+    <link href="CSS/clases.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <script src="script.js"></script> 
-  <header> 
-        <?php
-
-    
-    $id=$_GET['ID'];
-    $sql= "SELECT * FROM  CLASES WHERE ID=$id";
-    $resultado=mysqli_query($conn,$sql);
-    if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
-        $fila=mysqli_fetch_assoc($resultado);
-        $titulo=$fila['Materia'];
-        $curso=$fila['Grado'];
-    }
-    else{
-      die();
-    }
-    ?>
-    <a href="inicioES.php"> <img class ="out" src="FOTOS/out.png" width="50px"></a>
-        <nav id="cabecera"> 
-                <div class="imagen"> 
-                <div class="titulo"><?=$titulo?></div>
-                <div class="nombre_prof"><?=$curso?></div>
-        </nav>
-        
-  </header>
-  
-<section id="uno">
-  <div id="pendientes">
-    <a href="" class="cuadros" id="tarea">TAREAS</a>
-    <img src="FOTOS/tare.png" id="tare">
-  </div>
-  <div id="personas">
-    <a href="" class="cuadros">PERSONAS</a>
-    <img src="FOTOS/person.png" id="person">
-  </div>
-  <div id="archivos">
-    <a href="" class="cuadros">ARCHIVOS</a>
-    <span id="archiv2"><img src="FOTOS/archiv.png" width="" id="archiv"></span>
-  </div>
-</section>
-
-<section id="dos">
-  <div class="caja_comentario"> 
-   <div class="texto_comentario"> <img src="FOTOS/burbuja.png" id="burbuja" width="45px">
-   <form  method="post">
-    <p for="">Comenta algo a la clase..</p>
-    <textarea name="comen" id="" cols="40" rows="2"> </textarea>   
-    <input type="submit" value="enviar">
-    </form>
-    
-   </div>
-  </div>
- <h2>Publicaciones</h2>
-<?php
-if (file_exists($archivo)) {
-    $lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    $lineas = array_reverse($lineas);
-
-    // Cargar respuestas
-    $respuestas = [];
-    if (file_exists($archivo_respuestas)) {
-        $res = file($archivo_respuestas, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($res as $r) {
-            list($comentario_id, $fecha_r, $autor_r, $contenido_r) = explode('|', $r);
-            $respuestas[$comentario_id][] = [
-                'fecha' => $fecha_r,
-                'autor' => $autor_r,
-                'contenido' => $contenido_r
-            ];
-        }
-    }
-
-    foreach ($lineas as $linea) {
-        list($id, $fecha, $autor, $contenido) = explode('|', $linea);
-        echo '
-        <div class="caja_comentario_2">
-            <div class="profe">
-                <img src="FOTOS/user.png" id="user">
-                <p class="datos_profe">' . htmlspecialchars($autor) . '</p>
-                <a><img src="FOTOS/ing.png" width="40px" ></img> </a>
+    <header>
+        <a href="inicioES.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
+        <nav id="cabecera">
+            <div class="imagen">
+                <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
+                <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
             </div>
-            <input type="datetime-local" class="datos_profe" value="' . date("Y-m-d\TH:i", strtotime($fecha)) . '" readonly>
-            <div class="respuesta">' . htmlspecialchars($contenido) . '</div>
-            
-            <form method="post" action="">
-                <input type="hidden" name="responder_a" value="' . $id . '">
-                <textarea name="respuesta" placeholder="Responder..." required></textarea>
-                <input type="submit" value="Responder">
-            </form>';
+        </nav>
+    </header>
 
-        // Mostrar respuestas si existen
-        if (isset($respuestas[$id])) {
-            foreach ($respuestas[$id] as $r) {
-                echo '
-                <div class="caja_respuesta" style="margin-left:30px; margin-top:10px; border-left:2px solid #ccc; padding-left:10px;">
-                    <p><strong>' . htmlspecialchars($r['autor']) . '</strong> [' . $r['fecha'] . ']:</p>
-                    <p>' . htmlspecialchars($r['contenido']) . '</p>
-                </div>';
+    <section id="uno">
+        <div id="pendientes">
+            <a href="" class="cuadros" id="tarea">TAREAS</a>
+            <img src="FOTOS/tare.png" id="tare">
+        </div>
+        <div id="personas">
+            <a href="" class="cuadros">PERSONAS</a>
+            <img src="FOTOS/person.png" id="person">
+        </div>
+        <div id="archivos">
+            <a href="" class="cuadros">ARCHIVOS</a>
+            <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
+        </div>
+    </section>
+
+    <section id="dos">
+        <div class="caja_comentario">
+            <div class="texto_comentario">
+                <img src="FOTOS/burbuja.png" id="burbuja" width="45px">
+                <form action="datos_clases.php" method="get">
+                <label> escribe el asunto de la publicacion </label>  
+                <input type="text" name="asunto">
+                    <p>Comenta algo a tu clase...</p>
+                    <textarea name="publi" cols="40" rows="2" required></textarea>
+                    <input type="hidden" name="id" value="<?= $id ?>">
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+
+        <h2>Publicaciones</h2>
+
+        <?php
+        $sqlPubli = "SELECT * FROM PUBLICACIONES WHERE CLASES_ID = $id ORDER BY Fecha DESC";
+        $resPubli = $conn->query($sqlPubli);
+
+        if ($resPubli && $resPubli->num_rows > 0) {
+            while ($fila = $resPubli->fetch_assoc()) {
+                $fecha = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
+                $texto = htmlspecialchars($fila['Texto']);
+                $asunta = htmlspecialchars($fila['Tarea']);
+                echo "
+                <div class='caja_comentario_2'>
+                    <div class='profe'>
+                        <img src='FOTOS/user.png' id='user'>
+                        <p class='datos_profe'>" . htmlspecialchars($autor) . "</p>
+                    </div>
+                    <input type='datetime-local' class='datos_profe' value='$fecha' readonly>
+                    <div class='respuesta'>$asunta</div>
+                    <div class='respuesta'>$texto</div>
+                </div>";
             }
+        } else {
+            echo "<p>No hay publicaciones aún.</p>";
         }
+        ?>
+    </section>
 
-        echo '</div>';
-    }
-} else {
-    echo '<p>No hay publicaciones aún.</p>';
-}
-?>
-
-  
-</section>
- 
     <footer>©Copyright Colegio Pedro Poveda</footer>
 </body>
 
