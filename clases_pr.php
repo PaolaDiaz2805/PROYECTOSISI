@@ -117,6 +117,7 @@ if ($res_nombre && $res_nombre->num_rows > 0) {
                     <div class='respuesta'>$texto</div>
                 </div>";
             }
+            
         } else {
             echo "<p>No hay publicaciones aún.</p>";
         }
