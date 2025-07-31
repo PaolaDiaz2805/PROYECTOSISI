@@ -48,18 +48,6 @@ header{
     margin: 0px;
     
 }
-.buscador{
-    display: flex;
-    align-items: center;
-    padding: 23px 200px 23px 25px;
-    background-color: #1F232E;
-    color: white;
-}
-.vacio{
-    background-color:gray;
-    width: 330px;
-    height: 100%;
-}
 .botones{
     display: flex;
     align-items: center;
@@ -70,10 +58,6 @@ header{
     list-style: none;
     
 }
-#menu_desple{
-    padding: 5px; 
-    background-color: gray;
-}
 .bot,.inicio{
     text-decoration: none;
     padding: 16px;
@@ -82,7 +66,7 @@ header{
     
 }
 .inicio{
-    background-color: #1F232E;
+    background-color: #35403E;
     margin-left: -35px;
     font-size: 13px;
     font-weight: 800;
@@ -102,9 +86,9 @@ header{
 }
 
 .bot:hover{
-    outline: 2px solid #686c75;
+    outline: 2px solid #35403E;
     background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    color:#35403E;
 }
 
 .bot:hover::after{
@@ -213,6 +197,25 @@ a{
     text-decoration: none;
 }
 
+.menu{
+    background-color:gray;
+    display: flex;
+    justify-content:center;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+}
+.barra{
+    padding: 7px;
+    width: 100%;
+    margin :3px;
+}
+.bot,.inicio{
+    padding: 15px;
+}
+
+
     </style> 
 </head> 
 <body>
@@ -233,10 +236,6 @@ a{
                     <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
                     <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
                     </ul>
-                    </div>
-                        <div class="buscador" >Buscar...</div>
-                        <div class="vacio"></div>
-                    </div>
             <script>
               function toggleMenu() {
   const dropdown = document.getElementById("menu_desple");
