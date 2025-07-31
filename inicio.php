@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
                             la familia Rene Barrientista.</p>
                         </aside>
               </section>
-    </section>
+    </section> 
              
   <section class="b_derecha">
         <div class="barra_acceso">

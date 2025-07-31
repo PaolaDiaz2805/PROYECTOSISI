@@ -41,8 +41,6 @@ header{
     text-decoration: none;
 }
 .menu{
-    background-color: rgb(255, 255, 255);
-    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,10 +62,10 @@ header{
 }
 .botones{
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     flex-direction: row;
-    gap: 65px;
+    gap: 50px;
+    padding: 2px 0px 2px 0px;
     padding-right:10px ;
     list-style: none;
     
@@ -95,7 +93,7 @@ header{
     background-color: transparent;
     font-size: 13px;
     font-weight: 500;
-    padding: 10px;
+    padding: 12px;
     border: none;
     color: white;
     outline: 2px solid white;
@@ -142,7 +140,7 @@ header{
 }
 
 
-@media (max-width: 1900px) {
+@media (max-width: 1910px) {
 
 .inicio{
     margin-left: 3px;
@@ -166,7 +164,6 @@ header{
 }
 .menu {
     flex-direction: column;
-    align-items: flex-start;
   }
 
 .menu-boton {
@@ -191,7 +188,7 @@ header{
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
-    padding: 10px;
+    padding: 10px;;
   }
 
 .buscador,.vacio {
@@ -215,6 +212,7 @@ header{
 a{
     text-decoration: none;
 }
+
     </style> 
 </head> 
 <body>
@@ -227,11 +225,11 @@ a{
                     <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
                     <div id="menu_desple" class="barra">
                     <ul class="botones">
-                    <li><a href="" id="primero" class="inicio"><i></i>INICIO</a></li>
+                    <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>
                     <li><a href="" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
                     <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
-                    <li><a href="" class="bot"><i></i>SERVICIOS EN LÍNEA</a></li>
-                    <li><a href="" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
+                    <li><a href="" class="bot"><i></i>HISTORIA</a></li>
+                    <li><a href="datos_cole.php" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
                     <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
                     <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
                     </ul>
