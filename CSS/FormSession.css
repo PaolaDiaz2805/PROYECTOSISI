@@ -145,7 +145,7 @@ header{
     transform: scale(1, 1);
 }
 
-.b_izquierda{
+/*.b_izquierda{
     grid-area: iz;
     padding: 5px;
   
@@ -175,7 +175,7 @@ header{
     height: max-content;
  
    
-        }
+        }*/
 
 fieldset {
       
