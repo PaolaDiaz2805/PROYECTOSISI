@@ -15,7 +15,7 @@ footer {
     grid-template-columns: 100%;
     grid-template-rows: 350px 1100px 20px;
     grid-template-areas: 
-    "he"
+    "he" 
     "bd"
     "fo";
 }

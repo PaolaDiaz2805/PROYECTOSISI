@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
         footer{
     font-family: 'Questrial', sans-serif; 
-    background-color: rgb(31,35,46);
+    background-color: #35403E;
     color: white;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
 <body>
     
     <footer> 
-        ©Copyright Colegio Pedro Poveda
+        ©Copyright U.E René Barrientos
     </footer>
 </body>
 </html>

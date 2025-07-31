@@ -21,8 +21,8 @@
  
   <header>
         <div class="encabezado"> 
-                    <img src="FOTOS/logo.jpg" class ="logo_cole"/>
-                    <a href="test.html" class="titulo">Colegio Federico Aguiló</a>
+                    <img src="FOTOS/logo.jpeg" class ="logo_cole"/>
+                    <a href="test.html" class="titulo">U.E. RENÉ BARRIENTOS</a>
                 </div>
             <div class="menu">
                     <button onclick="toggleMenu()" class="menu-boton"><img src="FOTOS/barras.png" style=" width: 50px "></button>

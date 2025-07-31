@@ -28,10 +28,8 @@ header{
     gap: 10px;
 }
 
-
-
 .encabezado{
-    background-color: #1F232E;
+    background-color: #35403E;
     display: flex;
     align-items: center;
     gap: 60px;
