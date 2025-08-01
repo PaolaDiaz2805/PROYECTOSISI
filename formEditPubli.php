@@ -35,6 +35,7 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
+
 $sql = "SELECT * FROM PUBLICACIONES WHERE idP = $ID_Publi";
 $resultado = $conn->query($sql);
 
