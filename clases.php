@@ -112,6 +112,16 @@ if ($resultado && $resultado->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
                 $autorPublicacion = htmlspecialchars($fila['Autor']);
                 $fecha = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
+$mostrarFecha = $fecha;
+
+$editado = "";
+if (!empty($fila['FechaE'])) {
+    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
+    $mostrarFecha = $fechaEdicion; // MOSTRAR LA FECHA DE EDICIÓN EN LUGAR DE LA ORIGINAL
+    $editado = "<span style='color: black;'>Edit</span>";
+}
+
+
                 $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
@@ -135,11 +145,11 @@ if ($resultado && $resultado->num_rows > 0) {
                     <div class='respuesta'><?=$texto?></div>
                 </div>";
         <?php    }
+
         } else {
             echo "<p>No hay publicaciones aún.</p>";
         }
 ?>
-        ?>
     </section>
 
     <footer>©Copyright Colegio Pedro Poveda</footer>
