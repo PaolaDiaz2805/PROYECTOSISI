@@ -115,26 +115,30 @@ if ($resultado && $resultado->num_rows > 0) {
                 $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
-
-                echo "
+        ?>
                 <div class='caja_comentario_2'>
                     <div class='profe'>
                         <img src='FOTOS/user.png' id='user'>
-                        <p class='datos_profe'>$autorPublicacion</p>
+                        <p class='datos_profe'><?=$autorPublicacion?></p>
                         <div class='editar'> 
-                            <a href='formEditPubli.php?idP=$idPublicacion'>
-                                <img src='FOTOS/edit.png' width='40px'>
+                            <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
+                            <?php
+                                if ($autorPublicacion==$_SESSION['nombre']) {
+                                            echo "<img src='FOTOS/edit.png' width='40px'>";
+                                }
+                            ?>
                             </a> 
                         </div>                   
                     </div>
-                    <input type='datetime-local' class='datos_profe' value='$fecha' readonly>
-                    <div class='respuesta_asu'>ASUNTO: $asunta</div>
-                    <div class='respuesta'>$texto</div>
+                    <input type='datetime-local' class='datos_profe' value='<?=$fecha?>' readonly>
+                    <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
+                    <div class='respuesta'><?=$texto?></div>
                 </div>";
-            }
+        <?php    }
         } else {
             echo "<p>No hay publicaciones aún.</p>";
         }
+?>
         ?>
     </section>
 

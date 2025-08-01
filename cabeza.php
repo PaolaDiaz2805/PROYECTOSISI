@@ -57,7 +57,7 @@
                     <div class="menu">
                         <img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
                             <div id="dropdown" class="menu-contenido">
-                                <a href="#">Inicio</a>
+                                <a href="inicio.php">Inicio</a>
                                 <a href="Bienvenido.php">Datos Personales</a>
                                 <a href="#">Contactanos</a>
                                 <a href="#">Ajustes</a>
