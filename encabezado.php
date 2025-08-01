@@ -28,10 +28,8 @@ header{
     gap: 10px;
 }
 
-
-
 .encabezado{
-    background-color: #1F232E;
+    background-color: #35403E;
     display: flex;
     align-items: center;
     gap: 60px;
@@ -43,8 +41,6 @@ header{
     text-decoration: none;
 }
 .menu{
-    background-color: rgb(255, 255, 255);
-    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -52,31 +48,15 @@ header{
     margin: 0px;
     
 }
-.buscador{
-    display: flex;
-    align-items: center;
-    padding: 23px 200px 23px 25px;
-    background-color: #1F232E;
-    color: white;
-}
-.vacio{
-    background-color:gray;
-    width: 330px;
-    height: 100%;
-}
 .botones{
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     flex-direction: row;
-    gap: 65px;
+    gap: 50px;
+    padding: 2px 0px 2px 0px;
     padding-right:10px ;
     list-style: none;
     
-}
-#menu_desple{
-    padding: 5px; 
-    background-color: gray;
 }
 .bot,.inicio{
     text-decoration: none;
@@ -86,7 +66,7 @@ header{
     
 }
 .inicio{
-    background-color: #1F232E;
+    background-color: #35403E;
     margin-left: -35px;
     font-size: 13px;
     font-weight: 800;
@@ -97,7 +77,7 @@ header{
     background-color: transparent;
     font-size: 13px;
     font-weight: 500;
-    padding: 10px;
+    padding: 12px;
     border: none;
     color: white;
     outline: 2px solid white;
@@ -106,9 +86,9 @@ header{
 }
 
 .bot:hover{
-    outline: 2px solid #686c75;
+    outline: 2px solid #35403E;
     background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    color:#35403E;
 }
 
 .bot:hover::after{
@@ -144,7 +124,7 @@ header{
 }
 
 
-@media (max-width: 1900px) {
+@media (max-width: 1910px) {
 
 .inicio{
     margin-left: 3px;
@@ -168,7 +148,6 @@ header{
 }
 .menu {
     flex-direction: column;
-    align-items: flex-start;
   }
 
 .menu-boton {
@@ -193,7 +172,7 @@ header{
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
-    padding: 10px;
+    padding: 10px;;
   }
 
 .buscador,.vacio {
@@ -217,6 +196,26 @@ header{
 a{
     text-decoration: none;
 }
+
+.menu{
+    background-color:gray;
+    display: flex;
+    justify-content:center;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+}
+.barra{
+    padding: 7px;
+    width: 100%;
+    margin :3px;
+}
+.bot,.inicio{
+    padding: 15px;
+}
+
+
     </style> 
 </head> 
 <body>
@@ -229,18 +228,14 @@ a{
                     <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
                     <div id="menu_desple" class="barra">
                     <ul class="botones">
-                    <li><a href="" id="primero" class="inicio"><i></i>INICIO</a></li>
+                    <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>
                     <li><a href="" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
                     <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
-                    <li><a href="" class="bot"><i></i>SERVICIOS EN LÍNEA</a></li>
-                    <li><a href="" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
+                    <li><a href="" class="bot"><i></i>HISTORIA</a></li>
+                    <li><a href="datos_cole.php" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
                     <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
                     <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
                     </ul>
-                    </div>
-                        <div class="buscador" >Buscar...</div>
-                        <div class="vacio"></div>
-                    </div>
             <script>
               function toggleMenu() {
   const dropdown = document.getElementById("menu_desple");

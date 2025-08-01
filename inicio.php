@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 
 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 
 <head>
@@ -125,36 +125,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
                             la familia Rene Barrientista.</p>
                         </aside>
               </section>
-    </section>
+    </section> 
              
   <section class="b_derecha">
         <div class="barra_acceso">
             <h2 class="titulo_acceso_online">Acceso Online</h2>
-            <a class="ingreso" href="FormSession.php">Ingresa</a>
+            <div class="tj">
+            <a class="ingreso" href="FormSession.php">Ingresa</a></div>
         </div>
-        <div >
+        
             <h2 class="cale">Calendario</h2>
+        <div class="tj">
             <img class="cal_img" src="FOTOS/calendario.jpg">
         </div>
         <div >
-            <h2 class="barra_redes">Visitanos</h2>
-        </div>  
-        <div >
-            <h2 class="barra_redes">Visitanos</h2>
+            <h2 class="barra_redes">Dejanos tu comentario :D</h2>
+            <div >
             <section id="dos">
   <div class="caja_comentario"> 
-   <div class="texto_comentario"> <img src="FOTOS/burbuja.png" id="burbuja" width="45px">
+   <div class="texto_comentario"> 
+
    <form  method="post">
-    <p for="">Comenta una reseña....</p>
-    <textarea name="comen" id="" cols="40" rows="2"> </textarea>   
-    <input type="submit" value="enviar">
+    <div class="seh"><p for="" class="comen">Comenta una reseña....</p><img src="FOTOS/burbuja.png" id="burbuja" width="50px" height="50px"></div>
+    <div class="seh"><textarea name="comen" id="" cols="40" rows="2"> </textarea>   
+    <button type="submit" value="" class="bet"><img src="FOTOS/flecha.png"></button></div>
     </form>
     
    </div>
         </div> 
-  </section>
-  </div>
-   <h2>Publicaciones</h2>
+
+<h2>Publicaciones</h2>
+
+<div class="scro">
 <?php
 if (file_exists($archivo)) {
     $lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -177,28 +179,38 @@ if (file_exists($archivo)) {
     foreach ($lineas as $linea) {
         list($id, $fecha, $autor, $contenido) = explode('|', $linea);
         echo '
+        
         <div class="caja_comentario_2">
-            <div class="profe">
-                <img src="FOTOS/user.png" id="user">
+            <div class="ty">
+                <img src="FOTOS/user.png" id="user" height="40px" width="40px">
                 <p class="datos_profe">' . htmlspecialchars($autor) . '</p>
-               
             </div>
             <input type="datetime-local" class="datos_profe" value="' . date("Y-m-d\TH:i", strtotime($fecha)) . '" readonly>
-            <div class="respuesta">' . htmlspecialchars($contenido) . '</div>';
-            
+            <div class="respuesta">' . htmlspecialchars($contenido) . 
+            '</div>
+        </div>'
+            ;
             
      
     }
 } else {
-    echo '<p>No hay publicaciones aún.</p>';
+    echo '<p class="comen">No hay publicaciones aún.</p>';
 }
 ?>
 
-  
+  </section>
+  </div>
+</div>
+        </div> 
+</div>
+        
 </section>
-    <?php
+
+        
+  <?php
     include("footer.php");
     ?>
+    
 </body>
 
 </html>

@@ -13,9 +13,9 @@ footer {
     margin: 0px; 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 350px 1100px 20px;
+    grid-template-rows: auto auto auto;
     grid-template-areas: 
-    "he"
+    "he" 
     "bd"
     "fo";
 }
@@ -43,7 +43,7 @@ footer {
     width: 100%;
 }
 .di{
-    background-color: #1F232E;
+    background-color: #35403E;
     color: white;
     display: flex;
     justify-content: center;
@@ -63,13 +63,18 @@ footer {
     align-items: center;
  
 }
+.ns{
+    display: flex;
+    justify-content: space-around;
+}
 .bienvenida{
     display: flex;
     flex-direction: column;
-    margin: 0px 10px 10px 10px;
+    margin: -400px 10px 10px 10px;
 }
 .bienvenidos_texto{
-    font-size: 30px;
+    font-size: 50px;
+    text-align: center;
 }
 .b_derecha{
     grid-area: de;
@@ -81,18 +86,18 @@ th, td {
   text-align: center;
   font-size: 12px;
   color: white;
-  background-color: #2a499e;
+  background-color: #5b6967;
 }
 td{
    width: 400px; 
 }
 th {
-  background-color: #1F232E; /* color de fondo para cabecera */
+  background-color: #35403E; /* color de fondo para cabecera */
   font-weight: bold;
 }
 
 td:hover {
-  background-color: #56627c; /* efecto al pasar el mouse */
+  background-color: #243633; /* efecto al pasar el mouse */
   color: white;
 }
 
@@ -237,7 +242,7 @@ a{
 }
 
 .cale, .titulo_acceso_online,.barra_redes{
-        background-color:#1d1e22;
+        background-color:#35403E;
         color: white;
         margin-bottom: 20px;
         padding-top: 10px;
@@ -249,13 +254,72 @@ a{
         height: 120px;
         width: 250px;
     }
-    .ingreso{
+    .tj{
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+    }
+    .ingreso{
         background-color: gray;
         color: white;
+        padding: 10px 20px 10px 20px ;
     } 
 
-    .ns{
-        display: flex;
+    .caja_comentario{
+        border:solid 1px gray ;
+        padding :10px ;
+        border-radius: 10px;
     }
+    .seh{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .bet ,.datos_profe{
+        border: 0px solid; 
+        background-color: transparent;
+    }
+    .comen{
+        font-size: 20px;
+    }
+    .ty{
+        display: flex;
+        align-items: center;
+    }
+    .caja_comentario_2{
+        padding: 5px;
+        margin: 6px;
+        border: 1px solid gray ;
+        background-color: white;
+        border-radius: 10px;
+    }
+    .respuesta{
+  font-family: 'Questrial', sans-serif;
+    }
+
+    .scro{
+    max-height: 400px;     /* Ajusta según lo que necesites */
+    overflow-y: auto;      /* Barra lateral para deslizar */
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #35403E;
+    }
+
+    
+.bienvenida{
+    animation: venir 0.8s ease;
+}
+@keyframes venir {
+  0%   { transform: translateY(150px); opacity: 0;}
+  100%  { transform: translateY(0); opacity: 1;}
+}
+
+.pho ,.ingreso{
+    transition: transform 0.4s ease, z-index 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.pho:hover , .ingreso:hover{
+    transform: scale(1.1);
+    z-index: 10;
+}
