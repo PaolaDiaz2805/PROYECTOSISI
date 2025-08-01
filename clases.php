@@ -112,25 +112,36 @@ if ($resultado && $resultado->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
                 $autorPublicacion = htmlspecialchars($fila['Autor']);
                 $fecha = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
+$mostrarFecha = $fecha;
+
+$editado = "";
+if (!empty($fila['FechaE'])) {
+    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
+    $mostrarFecha = $fechaEdicion; // MOSTRAR LA FECHA DE EDICIÓN EN LUGAR DE LA ORIGINAL
+    $editado = "<span style='color: black;'>Edit</span>";
+}
+
+
                 $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
 
-                echo "
-                <div class='caja_comentario_2'>
-                    <div class='profe'>
-                        <img src='FOTOS/user.png' id='user'>
-                        <p class='datos_profe'>$autorPublicacion</p>
-                        <div class='editar'> 
-                            <a href='formEditPubli.php?idP=$idPublicacion'>
-                                <img src='FOTOS/edit.png' width='40px'>
-                            </a> 
-                        </div>                   
-                    </div>
-                    <input type='datetime-local' class='datos_profe' value='$fecha' readonly>
-                    <div class='respuesta_asu'>ASUNTO: $asunta</div>
+               echo "
+            <div class='caja_comentario_2'>
+                <div class='profe'>
+                    <img src='FOTOS/user.png' id='user'>
+                    <p class='datos_profe'>$autorPublicacion</p>
+                    <div class='editar'> 
+                        <a href='formEditPubli.php?idP=$idPublicacion'>
+                        <img src='FOTOS/edit.png' width='40px'>
+                        </a> 
+                    </div>                   
+                </div>
+                <div>$editado<input type='datetime-local' class='datos_profe' value='$mostrarFecha'  readonly></div>
+                <div class='respuesta_asu'>ASUNTO: $asunta </div>
                     <div class='respuesta'>$texto</div>
-                </div>";
+            </div>";
+
             }
         } else {
             echo "<p>No hay publicaciones aún.</p>";
