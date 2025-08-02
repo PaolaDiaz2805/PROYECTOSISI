@@ -16,14 +16,6 @@ if (!isset($_SESSION['ci'])) {
     exit();
 }
 
-// Obtener nombre del usuario desde la base de datos usando su CI
-$autor = 'Usuario desconocido';
-$ci = $_SESSION['ci'];
-$sql_nombre = "SELECT Nombres FROM informacion WHERE CI = '$ci'";
-$res_nombre = $conn->query($sql_nombre);
-if ($res_nombre && $res_nombre->num_rows > 0) {
-    $autor = $res_nombre->fetch_assoc()['Nombres'];
-}
 
 // Obtener datos de la clase actual
   
@@ -52,7 +44,27 @@ if ($res_nombre && $res_nombre->num_rows > 0) {
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
     <link href="CSS/clases.css" rel="stylesheet" type="text/css" />
-</head>
+    <style>
+      .pub{
+            color: white;
+        }
+        .datos_profe{
+            background-color: ;
+            font-family: 50px;
+            box
+        }
+        .respuesta_asu{
+            background-color: ;
+            font-family:apache_child_terminate;
+            box
+        }
+        .respuesta{
+            background-color: ;
+            font-family: array_intersect_assoc;
+            box
+        }
+    </style>
+  </head>
 
 <body>
     <header>
@@ -87,7 +99,7 @@ if ($res_nombre && $res_nombre->num_rows > 0) {
                 <form action="datos_clases.php" method="get">
                 <label> escribe el asunto de la publicacion </label>  
                 <input type="text" name="asunto">
-                    <p>Comenta algo a tu clase...</p>
+                    <p>Publica algo a tu clase...</p>
                     <textarea name="publi" cols="40" rows="2" required></textarea>
                     <input type="hidden" name="id" value="<?= $id ?>">
                     <input type="submit" value="Enviar">
@@ -95,7 +107,7 @@ if ($res_nombre && $res_nombre->num_rows > 0) {
             </div>
         </div>
 
-        <h2>Publicaciones</h2>
+        <h2 class="pub">Publicaciones</h2>
 
         <?php
         $sqlPubli = "SELECT * FROM PUBLICACIONES WHERE CLASES_ID = $id ORDER BY Fecha DESC";
@@ -103,17 +115,18 @@ if ($res_nombre && $res_nombre->num_rows > 0) {
 
         if ($resPubli && $resPubli->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
+                $autorPublicacion = htmlspecialchars($fila['Autor']);
                 $fecha = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
                 $texto = htmlspecialchars($fila['Texto']);
-                $asunta = htmlspecialchars($fila['Tarea']);
+                $asunta = htmlspecialchars($fila['Asunto']);
                 echo "
                 <div class='caja_comentario_2'>
                     <div class='profe'>
                         <img src='FOTOS/user.png' id='user'>
-                        <p class='datos_profe'>" . htmlspecialchars($autor) . "</p>
+                        <p class='datos_profe'>$autorPublicacion</p>
                     </div>
                     <input type='datetime-local' class='datos_profe' value='$fecha' readonly>
-                    <div class='respuesta'>$asunta</div>
+                    <div class='respuesta_asu'>ASUNTO: $asunta</div>
                     <div class='respuesta'>$texto</div>
                 </div>";
             }
@@ -126,5 +139,3 @@ if ($res_nombre && $res_nombre->num_rows > 0) {
 
     <footer>©Copyright Colegio Pedro Poveda</footer>
 </body>
-
-</html>
